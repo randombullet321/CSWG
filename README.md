@@ -94,7 +94,7 @@ I personally use UFW, but you can use IP Tables
 
 2. Find the ports you will need to open. For this setup we will need 9993 UDP.
 
-3. Finally remeber to enable your firewall (sudo UFW Enable) and perhaps a service such as fail to ban.
+3. Finally remember to enable your firewall (sudo ufw Enable) and perhaps a service such as fail to ban.
 
 Example UFW on my server
 
@@ -210,7 +210,7 @@ And uncomment it and make sure it says 1.
 
 ## Testing Part 1
 
-Ping 10.0.1.8 via your server. You should get sucess.
+Ping 10.0.1.8 via your server. You should get success.
 
 ## Testing Part 2
 
