@@ -28,7 +28,7 @@ Click Generate and follow it's instructions
 
 On key comment please use your [ISO 3166 Alpha-3 country code](https://www.iban.com/country-codes) and your LAST.FIRST INITIAL
 
-For example Albert Wu from the USA would be "USA.WU.A"
+For example John Doe from the USA would be "USA.DOE.J"
 
 Finally create strong password for your passphrase. If you lose this password, you will no longer be able to access your server.
 
@@ -154,9 +154,9 @@ First run your update script by using
         
 ## Joining the CSWG VPN Mesh
 
-Here is where you actually join the VPN network
+Here is where you actually join the VPN network (My email to you will have the network ID)
 
-    sudo zerotier-cli join 632ea29085d9242d
+    sudo zerotier-cli join XXXXXXXXXXXXXXXX
         
 You should see
    
