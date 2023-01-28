@@ -187,16 +187,39 @@ Create some shell variables to help with the next code (Modify your PHY_IFACE an
     PHY_IFACE=eth0
     ZT_IFACE=ztxxxxxxx
     
-Finally add your iptable rules
+Next add your iptable rules
 
     sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
     sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
     sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
     
-Finally save the iptable rules on boot
+Save the iptable rules on boot
 
     sudo apt install iptables-persistent
-    sudo apt install iptables-persistent
-    sudo bash -c iptables-save > /etc/iptables/rules.v4
-   break
     sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
+Finally, make sure that it survives reboots
+
+    sudo nano /etc/sysctl.conf
+        
+Go to where it says 
+
+    # net.ipv4.ip_forward = 1
+    
+And uncomment it and make sure it says 1.
+
+## Testing Part 1
+
+Ping 10.0.1.8 via your server. You should get sucess.
+
+## Testing Part 2
+
+Please tell me your ZeroTier router IP address and I will create a static route within the VPN network.
+
+Create another server in your LAN subnet (I'll use 10.0.3.3) and advertise your routes in your router. For example if I gave you subnet 10.0.3.0/24 and your ZeroTier server is 10.0.3.2, you should put a static route of 10.244.0.0/16 with a next hop of 10.0.3.2.
+
+You server (10.0.3.3) should ping all the way through to my webserver (10.0.1.8)
+
+Let me know which of your next address to ping and I should be able to ping from my webserver (10.0.1.8) to your other server (10.0.3.3)
+
+If this works both ways, we have finally finished the VPN setup.
