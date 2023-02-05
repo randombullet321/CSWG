@@ -220,7 +220,7 @@ Create another server in your LAN subnet (I'll use 192.168.176.3) and advertise 
 
 You server (192.168.176.3) should ping all the way through to my webserver (192.168.175.99)
 
-Let me know which of your next address to ping and I should be able to ping from my webserver (192.168.175.99) to your other server (10.0.3.3)
+Let me know which of your next address to ping and I should be able to ping from my webserver (192.168.175.99) to your other server (192.168.176.3)
 
 If this works both ways, we have finally finished the VPN setup.
 
