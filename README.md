@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-I am currently using IP space 172.25.0.0/16 and 192.168.175.0/24. Please let me know if this interferes with your current network. If it does you can try NATing behind your network.
+I am currently using IP space 172.25.0.0/16 and 192.168.175.0/24-192.168.200.0/24. Please let me know if this interferes with your current network. If it does you can try NATing behind your network.
 
 I am currently running this on Proxmox with an isolated VLAN on my home network.
 
