@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-I am currently using IP space 10.244.0.0/16 and 10.0.0.0/16. Please let me know if this interferes with your current network. If it does you can try NATing behind your network.
+I am currently using IP space 172.25.0.0/16 and 192.168.175.0/24. Please let me know if this interferes with your current network. If it does you can try NATing behind your network.
 
 I am currently running this on Proxmox with an isolated VLAN on my home network.
 
@@ -102,7 +102,7 @@ Example UFW on my server
 |--------------------------------|--------|---------------|
 | 9993/udp                       | ALLOW  | Anywhere      |
 | SSH/tcp                        | ALLOW  | MGMT Subnet   |
-| Anywhere on ZeroTier interface | ALLOW  | 10.244.0.0/16 |
+| Anywhere on ZeroTier interface | ALLOW  | 172.25.0.0/16 |
 | 9993/udp (v6)                  | ALLOW  | Anywhere (v6) |
 
 ### General OS quality of life (Not mandatory)
@@ -210,16 +210,16 @@ And uncomment it and make sure it says 1.
 
 ## Testing Part 1
 
-Ping 10.0.1.8 via your server. You should get success.
+Ping 192.168.175.99 via your server. You should get success.
 
 ## Testing Part 2
 
 Please tell me your ZeroTier router IP address and I will create a static route within the VPN network.
 
-Create another server in your LAN subnet (I'll use 10.0.3.3) and advertise your routes in your router. For example if I gave you subnet 10.0.3.0/24 and your ZeroTier server is 10.0.3.2, you should put a static route of 10.244.0.0/16 with a next hop of 10.0.3.2.
+Create another server in your LAN subnet (I'll use 192.168.176.3) and advertise your routes in your router. For example if I gave you subnet 192.168.176.0/24 and your ZeroTier server is 192.168.176.2, you should put a static route of 172.25.0.0/16 with a next hop of 192.168.176.2.
 
-You server (10.0.3.3) should ping all the way through to my webserver (10.0.1.8)
+You server (192.168.176.3) should ping all the way through to my webserver (192.168.175.99)
 
-Let me know which of your next address to ping and I should be able to ping from my webserver (10.0.1.8) to your other server (10.0.3.3)
+Let me know which of your next address to ping and I should be able to ping from my webserver (192.168.175.99) to your other server (10.0.3.3)
 
 If this works both ways, we have finally finished the VPN setup.
