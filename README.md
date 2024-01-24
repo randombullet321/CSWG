@@ -10,7 +10,7 @@ Current hardware is 2 vCPUs (Ryzen 5700G), 1.5GB RAM, 16GB SSD, and 1GBe NIC
 
 OS is Ubuntu 22.04.1 LTS.
 
-I am creating another VM that displays a webpage so you know that the VPN is working correctly. It's IP address is 192.168.175.99.
+I am creating another VM that displays a webpage so you know that the VPN is working correctly. It's IP address is 192.168.175.50.
 
 ### Generating SSH keys (Mandatory)
 
